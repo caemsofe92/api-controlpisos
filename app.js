@@ -14,6 +14,9 @@ var getRaic = require("./routes/get-raic");
 var getFilterRaic = require("./routes/get-filtered-raic");
 var getDiagnostic = require("./routes/get-diagnostic");
 var getWorkers = require("./routes/get-workers-number");
+var getTodo = require("./routes/get-todo");
+var createTodo = require("./routes/create-todo");
+var createTodoAPI = require("./routes/create-todo-api");
 
 var app = express();
 app.use(compression());
@@ -30,6 +33,9 @@ app.use("/get-raic", getRaic);
 app.use("/get-diagnostic", getDiagnostic);
 app.use("/get-filtered-raic", getFilterRaic);
 app.use("/get-workers-number", getWorkers);
+app.use("/get-todo", getTodo);
+app.use("/create-todo", createTodo);
+app.use("/create-todo-api", createTodoAPI);
 
 app.use(function (req, res, next) {
   next(createError(404));
